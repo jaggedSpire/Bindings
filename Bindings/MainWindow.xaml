@@ -7,11 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Text="LeftHandSide"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Text="{Binding LeftHandSide, ElementName=window}"/>
         <Label Content="+" HorizontalAlignment="Left" Margin="78,10,0,0" VerticalAlignment="Top" Width="31" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="114,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Text="RightHandSide"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="114,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Text="{Binding RightHandSide, ElementName=window}"/>
         <Label Content="=" HorizontalAlignment="Left" Margin="192,10,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Text="Sum"/>
-
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Text="{Binding Sum, ElementName=window, Mode=OneWay}"/>
     </Grid>
 </Window>
