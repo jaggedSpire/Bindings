@@ -1,4 +1,4 @@
-﻿<Window x:Name="window" x:Class="Bindings.MainWindow"
+﻿<Window x:Class="Bindings.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Text="{Binding LeftHandSide, ElementName=window}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Text="{Binding LeftHandSide}"/>
         <Label Content="+" HorizontalAlignment="Left" Margin="78,10,0,0" VerticalAlignment="Top" Width="31" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="114,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Text="{Binding RightHandSide, ElementName=window}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="114,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Text="{Binding RightHandSide}"/>
         <Label Content="=" HorizontalAlignment="Left" Margin="192,10,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Text="{Binding Sum, ElementName=window, Mode=OneWay}" IsReadOnly="True"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Text="{Binding Sum, Mode=OneWay}" IsReadOnly="True"/>
     </Grid>
 </Window>
