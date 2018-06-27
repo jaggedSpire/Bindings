@@ -7,53 +7,52 @@ namespace Bindings
     /// It's some data, geddit? haha
     /// model for summing properties
     /// </summary>
-    class SumData : INotifyPropertyChanged
+    public class SumData : INotifyPropertyChanged
     {
-        private int _leftHandSide = 1;
-        private int _rightHandSide = 2;
-        private int _sum = 3;
+        private int _leftHandSide;
+        private int _rightHandSide;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnNotifyPropertyChanged([CallerMemberName]string name = null)
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public int LeftHandSide
         {
-            get { return _leftHandSide; }
+            get => _leftHandSide;
             set
             {
-                if (_leftHandSide == value) { return; }
+                if (value == _leftHandSide)
+                {
+                    return;
+                }
+
                 _leftHandSide = value;
-                OnNotifyPropertyChanged();
-                Sum = LeftHandSide + RightHandSide;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(Sum));
             }
         }
 
         public int RightHandSide
         {
-            get { return _rightHandSide; }
+            get => _rightHandSide;
             set
             {
-                if (_rightHandSide == value) { return; }
+                if (value == _rightHandSide)
+                {
+                    return;
+                }
+
                 _rightHandSide = value;
-                OnNotifyPropertyChanged();
-                Sum = LeftHandSide + RightHandSide;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(Sum));
             }
         }
 
-        public int Sum
-        {
-            get { return _sum; }
-            private set
-            {
-                if (_sum == value) { return; }
-                _sum = value;
-                OnNotifyPropertyChanged();
-            }
-        }
-
+        public int Sum => LeftHandSide + RightHandSide;
     }
+
 }
