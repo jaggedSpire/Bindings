@@ -4,6 +4,18 @@
              xmlns:local="clr-namespace:Bindings"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="MathField" TargetType="TextBox">
+            <Setter Property="TextAlignment" Value="Right"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ReadonlyMathField" TargetType="TextBox" BasedOn="{StaticResource MathField}">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="IsReadOnlyCaretVisible" Value="False"/>
+            <Setter Property="Background" Value="{StaticResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        </Style>
+        <Style x:Key="MathSymbol" TargetType="Label">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
     </Application.Resources>
 </Application>

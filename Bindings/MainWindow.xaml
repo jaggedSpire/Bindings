@@ -7,10 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Text="{Binding LeftHandSide}"/>
-        <Label Content="+" HorizontalAlignment="Left" Margin="78,10,0,0" VerticalAlignment="Top" Width="31" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="114,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Text="{Binding RightHandSide}"/>
-        <Label Content="=" HorizontalAlignment="Left" Margin="192,10,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Text="{Binding Sum, Mode=OneWay}" IsReadOnly="True"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox 
+            Grid.Column="0"
+            Style="{StaticResource MathField}"
+            Text="{Binding LeftHandSide}"/>
+        <Label 
+            Grid.Column="1"
+            Style="{StaticResource MathSymbol}"
+            Content="+" />
+        <TextBox 
+            Grid.Column="2"
+            Style="{StaticResource MathField}"
+            Text="{Binding RightHandSide}"/>
+        <Label 
+            Grid.Column="3"
+            Style="{StaticResource MathSymbol}"
+            Content="=" />
+        <TextBox 
+            Grid.Column="4"
+            Style="{StaticResource ReadonlyMathField}"
+            Text="{Binding Sum, Mode=OneWay}" 
+            IsReadOnly="True"/>
     </Grid>
 </Window>
