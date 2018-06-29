@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Bindings"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
@@ -17,26 +20,45 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition MaxHeight="30"/>
+            <RowDefinition MaxHeight="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <CheckBox
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.ColumnSpan="6"
+            Content="Display math fields"
+            IsThreeState="False"
+            IsChecked="{Binding MathEnabled}"
+            />
         <TextBox 
             Grid.Column="0"
+            Grid.Row="1"
+            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
             Style="{StaticResource MathField}"
             Text="{Binding LeftHandSide}"/>
         <Label 
             Grid.Column="1"
+            Grid.Row="1"
+            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
             Style="{StaticResource MathSymbol}"
             Content="+" />
         <TextBox 
             Grid.Column="2"
+            Grid.Row="1"
+            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
             Style="{StaticResource MathField}"
             Text="{Binding RightHandSide}"/>
         <Label 
             Grid.Column="3"
+            Grid.Row="1"
+            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
             Style="{StaticResource MathSymbol}"
             Content="=" />
         <TextBox 
             Grid.Column="4"
+            Grid.Row="1"
+            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
             Style="{StaticResource ReadonlyMathField}"
             Text="{Binding Sum, Mode=OneWay}" 
             IsReadOnly="True"/>

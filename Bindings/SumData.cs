@@ -9,6 +9,7 @@ namespace Bindings
     /// </summary>
     public class SumData : INotifyPropertyChanged
     {
+        private bool? _mathEnabled = true;
         private int _leftHandSide;
         private int _rightHandSide;
 
@@ -18,6 +19,21 @@ namespace Bindings
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public bool? MathEnabled
+        {
+            get => _mathEnabled;
+            set
+            {
+                if (value == _mathEnabled)
+                {
+                    return;
+                }
+
+                _mathEnabled = value;
+                OnPropertyChanged();
+            }
         }
 
         public int LeftHandSide
