@@ -16,6 +16,8 @@ namespace Bindings
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            => null;
+        {
+            throw new NotSupportedException($"{GetType().Name} supports only one-way bindings");
+        }
     }
 }
