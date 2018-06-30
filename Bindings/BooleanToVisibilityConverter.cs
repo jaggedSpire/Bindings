@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace Bindings
 {
-    class BooleanToVisibilityConverter : IValueConverter
+    sealed class BooleanToVisibilityConverter : IValueConverter
     {
 
         public static BooleanToVisibilityConverter Default { get; } =
