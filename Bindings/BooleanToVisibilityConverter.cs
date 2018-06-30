@@ -4,8 +4,12 @@ using System.Windows.Data;
 
 namespace Bindings
 {
-    class BooleanToVisibilityConverter : IValueConverter
+    sealed class BooleanToVisibilityConverter : IValueConverter
     {
+
+        public static BooleanToVisibilityConverter Default { get; } =
+            new BooleanToVisibilityConverter();
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var boolean = value as bool?;

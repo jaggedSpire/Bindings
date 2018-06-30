@@ -20,7 +20,6 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
-        <local:BooleanToVisibilityConverter x:Key="VisibilityConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -39,7 +38,7 @@
         <Grid
             Grid.Column="0"
             Grid.Row="1"
-            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}">
+            Visibility="{Binding MathEnabled, Converter={x:Static local:BooleanToVisibilityConverter.Default}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="Auto"/>
