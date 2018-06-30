@@ -23,17 +23,9 @@
         <local:BooleanToVisibilityConverter x:Key="VisibilityConverter"/>
     </Window.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="30"/>
-            <RowDefinition MaxHeight="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <CheckBox
@@ -44,36 +36,43 @@
             IsThreeState="False"
             IsChecked="{Binding MathEnabled}"
             />
-        <TextBox 
+        <Grid
             Grid.Column="0"
             Grid.Row="1"
-            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
-            Style="{StaticResource MathField}"
-            Text="{Binding LeftHandSide}"/>
-        <Label 
-            Grid.Column="1"
-            Grid.Row="1"
-            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
-            Style="{StaticResource MathSymbol}"
-            Content="+" />
-        <TextBox 
-            Grid.Column="2"
-            Grid.Row="1"
-            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
-            Style="{StaticResource MathField}"
-            Text="{Binding RightHandSide}"/>
-        <Label 
-            Grid.Column="3"
-            Grid.Row="1"
-            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
-            Style="{StaticResource MathSymbol}"
-            Content="=" />
-        <TextBox 
-            Grid.Column="4"
-            Grid.Row="1"
-            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}"
-            Style="{StaticResource ReadonlyMathField}"
-            Text="{Binding Sum, Mode=OneWay}" 
-            IsReadOnly="True"/>
+            Visibility="{Binding MathEnabled, Converter={StaticResource VisibilityConverter}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <TextBox 
+                Grid.Column="0"
+                Grid.Row="1"
+                Style="{StaticResource MathField}"
+                Text="{Binding LeftHandSide}"/>
+            <Label 
+                Grid.Column="1"
+                Grid.Row="1"
+                Style="{StaticResource MathSymbol}"
+                Content="+" />
+            <TextBox 
+                Grid.Column="2"
+                Grid.Row="1"
+                Style="{StaticResource MathField}"
+                Text="{Binding RightHandSide}"/>
+            <Label 
+                Grid.Column="3"
+                Grid.Row="1"
+                Style="{StaticResource MathSymbol}"
+                Content="=" />
+            <TextBox 
+                Grid.Column="4"
+                Grid.Row="1"
+                Style="{StaticResource ReadonlyMathField}"
+                Text="{Binding Sum, Mode=OneWay}" 
+                IsReadOnly="True"/>
+        </Grid>
     </Grid>
 </Window>
