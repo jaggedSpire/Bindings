@@ -20,7 +20,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
-        <local:VisibilityConverter x:Key="VisibilityConverter"/>
+        <local:BooleanToVisibilityConverter x:Key="VisibilityConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
